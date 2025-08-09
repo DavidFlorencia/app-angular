@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, LOCALE_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NuevoComponente } from "./nuevo-componente/nuevo-componente";
 import { ComponentInline } from "./component-inline/component-inline";
@@ -13,15 +13,22 @@ import { ComponenteFor } from "./componente-for/componente-for";
 import { ViewChildComponent } from "./view-child/view-child";
 import { Mensaje } from './mensaje';
 import { ListadoUsuarios } from "./listado-usuarios/listado-usuarios";
+import { EjemploPipes } from "./ejemplo-pipes/ejemplo-pipes";
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+// Registrar los datos de localizacion para español mexicano
+registerLocaleData(localeEs, 'es-MX');
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NuevoComponente, ComponentInline, Interpolacion, Padre, MostrarMensaje, Replicador, Saludar, ComponenteIf, AgregarTarea, ComponenteFor, ViewChildComponent, ListadoUsuarios],
+  imports: [RouterOutlet, NuevoComponente, ComponentInline, Interpolacion, Padre, MostrarMensaje, Replicador, Saludar, ComponenteIf, AgregarTarea, ComponenteFor, ViewChildComponent, ListadoUsuarios, EjemploPipes],
+  providers: [{provide: LOCALE_ID, useValue: 'es-MX'}, Mensaje],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'Servicios y Observables en Angular';
+  protected title = 'Pipes en Angular';
 
   mensaje: string;
 
