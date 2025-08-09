@@ -11,13 +11,21 @@ import { ComponenteIf } from "./componente-if/componente-if";
 import { AgregarTarea } from "./agregar-tarea/agregar-tarea";
 import { ComponenteFor } from "./componente-for/componente-for";
 import { ViewChildComponent } from "./view-child/view-child";
+import { Mensaje } from './mensaje';
+import { ListadoUsuarios } from "./listado-usuarios/listado-usuarios";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NuevoComponente, ComponentInline, Interpolacion, Padre, MostrarMensaje, Replicador, Saludar, ComponenteIf, AgregarTarea, ComponenteFor, ViewChildComponent],
+  imports: [RouterOutlet, NuevoComponente, ComponentInline, Interpolacion, Padre, MostrarMensaje, Replicador, Saludar, ComponenteIf, AgregarTarea, ComponenteFor, ViewChildComponent, ListadoUsuarios],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'Decorador @ViewChild en Angular';
+  protected title = 'Servicios y Observables en Angular';
+
+  mensaje: string;
+
+  constructor(private mensajeService: Mensaje) {
+    this.mensaje = this.mensajeService.obtenerMensaje();
+  }
 }
