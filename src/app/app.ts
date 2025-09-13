@@ -16,13 +16,14 @@ import { ListadoUsuarios } from "./listado-usuarios/listado-usuarios";
 import { EjemploPipes } from "./ejemplo-pipes/ejemplo-pipes";
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { Navegacion } from "./navegacion/navegacion";
 
 // Registrar los datos de localizacion para español mexicano
 registerLocaleData(localeEs, 'es-MX');
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NuevoComponente, ComponentInline, Interpolacion, Padre, MostrarMensaje, Replicador, Saludar, ComponenteIf, AgregarTarea, ComponenteFor, ViewChildComponent, ListadoUsuarios, EjemploPipes],
+  imports: [RouterOutlet, NuevoComponente, ComponentInline, Interpolacion, Padre, MostrarMensaje, Replicador, Saludar, ComponenteIf, AgregarTarea, ComponenteFor, ViewChildComponent, ListadoUsuarios, EjemploPipes, Navegacion],
   providers: [{provide: LOCALE_ID, useValue: 'es-MX'}, Mensaje],
   templateUrl: './app.html',
   styleUrl: './app.css'
